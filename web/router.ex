@@ -13,6 +13,11 @@ defmodule Backend.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/api", Backend do
+    pipe_through :api
+    resources "/plants", PlantController
+  end
+
   scope "/", Backend do
     pipe_through :browser # Use the default browser stack
 
