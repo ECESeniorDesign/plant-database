@@ -4,4 +4,9 @@ defmodule Backend.PlantView do
   def render("index.json", %{plants: plants}) do
     plants
   end
+
+  def render("show.json", %{plant: plant}) do
+    plant
+  end
+
 end

@@ -7,4 +7,10 @@ defmodule Backend.PlantController do
     plants = Repo.all(Plant)
     render conn, plants: plants
   end
+
+  def show(conn, %{"id" => id}) do
+    plant = Repo.get(Plant, id)
+    render conn, plant: plant
+  end
+
 end
