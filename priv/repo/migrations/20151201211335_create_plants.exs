@@ -13,6 +13,8 @@ defmodule Backend.Repo.Migrations.CreatePlants do
       add :acidity_tolerance, :float
       add :humidity_ideal, :float
       add :humidity_tolerance, :float
+      add :temperature_ideal, :float
+      add :temperature_tolerance, :float
       add :maturity, :integer
     
       timestamps

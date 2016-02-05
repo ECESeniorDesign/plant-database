@@ -12,6 +12,8 @@ defmodule Backend.Plant do
     field :acidity_tolerance, :float
     field :humidity_ideal, :float
     field :humidity_tolerance, :float
+    field :temperature_ideal, :float
+    field :temperature_tolerance, :float
     field :maturity, :integer
     
     timestamps
