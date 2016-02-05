@@ -23,6 +23,8 @@ defmodule Backend.PlantControllerTest do
         acidity_tolerance: 0.6,
         humidity_ideal: 0.72,
         humidity_tolerance: 0.07,
+        temperature_ideal: 55.2,
+        temperature_tolerance: 12.3,
         maturity: 85,
       }
       |> Repo.insert!
@@ -46,6 +48,8 @@ defmodule Backend.PlantControllerTest do
         acidity_tolerance: 0.6,
         humidity_ideal: 0.72,
         humidity_tolerance: 0.07,
+        temperature_ideal: 55.2,
+        temperature_tolerance: 12.3,
         maturity: 85,
       }
       |> Repo.insert!
