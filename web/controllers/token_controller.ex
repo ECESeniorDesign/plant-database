@@ -2,8 +2,6 @@ defmodule Backend.TokenController do
 
   use Backend.Web, :controller
 
-  # plug :scrub_params, "user" when action in [:create]
-
   def create(conn, %{"user" => %{"username" => username, "password" => password }}) do
     Backend.Authenticator.authenticate_user(username, password)
       |> send_token(conn)
