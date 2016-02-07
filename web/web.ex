@@ -28,6 +28,8 @@ defmodule Backend.Web do
   def controller do
     quote do
       use Phoenix.Controller
+      alias Backend.Plant
+      alias Backend.User
 
       alias Backend.Repo
       import Ecto.Model
