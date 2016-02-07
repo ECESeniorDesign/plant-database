@@ -12,6 +12,3 @@ defmodule Backend.PlantController do
   end
 
 end
-
-# create token with: Phoenix.Token.sign(Backend.Endpoint, "user", user_id)
-# verify with: Phoenix.Token.verify(Backend.Endpoint, "user", token, max_age: 1209600)
