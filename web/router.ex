@@ -16,6 +16,7 @@ defmodule Backend.Router do
   scope "/api", Backend do
     pipe_through :api
     resources "/plants", PlantController
+    post "/token", TokenController, :create
   end
 
   scope "/", Backend do
