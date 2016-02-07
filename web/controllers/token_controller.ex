@@ -35,7 +35,7 @@ defmodule Backend.TokenController do
   end
 
   defp get_token(token, conn) do
-    case Phoenix.Token.verify(Backend.Endpoint, "user", token, max_age: 1209600) do
+    case Phoenix.Token.verify(Backend.Endpoint, "user", token, max_age: 86400) do
       {:ok, user_id} ->
         conn
           |> send_token(user_id)
