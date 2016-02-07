@@ -26,6 +26,8 @@ plants = [
     acidity_tolerance: 0.6,
     humidity_ideal: 0.72,
     humidity_tolerance: 0.07,
+    temperature_ideal: 51.2,
+    temperature_tolerance: 11.0,
     maturity: 85,
   },
   %Plant{
@@ -39,6 +41,8 @@ plants = [
     acidity_tolerance: 2.6,
     humidity_ideal: 0.42,
     humidity_tolerance: 0.27,
+    temperature_ideal: 51.2,
+    temperature_tolerance: 21.0,
     maturity: 185,
   },
   %Plant{
@@ -52,6 +56,8 @@ plants = [
     acidity_tolerance: 2.6,
     humidity_ideal: 0.42,
     humidity_tolerance: 0.12,
+    temperature_ideal: 55.2,
+    temperature_tolerance: 1.0,
     maturity: 90,
   },
   %Plant{
@@ -59,12 +65,14 @@ plants = [
     photo_url: "http://img1.cookinglight.timeinc.net/sites/default/files/styles/400xvariable/public/image/2009/09/0909p70-rosemary-m.jpg?itok=VnPtQBxY",
     water_ideal: 55.0,
     water_tolerance: 20.0,
-    light_ideal: 50.0,
-    light_tolerance: 50.0,
+    light_ideal: 40.0,
+    light_tolerance: 5.0,
     acidity_ideal: 7.0,
     acidity_tolerance: 1.6,
     humidity_ideal: 0.42,
     humidity_tolerance: 0.17,
+    temperature_ideal: 91.2,
+    temperature_tolerance: 11.0,
     maturity: 15,
   },
 ]
