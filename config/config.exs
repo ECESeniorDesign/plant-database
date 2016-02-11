@@ -11,6 +11,9 @@ config :backend, Backend.Endpoint,
   root: Path.dirname(__DIR__),
   secret_key_base: "RV/KDlyAHn2s8ReguZJ+ModQ/wvj8NORUSZUUjbfsyPYSJtDdfmQ7uYbySjNi0mB",
   render_errors: [accepts: ~w(html json)],
+  mailgun_domain: "https://api.mailgun.net/v3/sandbox0554392105884a0b8c41e3b610d97268.mailgun.org",
+  # Change for production
+  mailgun_key: "key-a4acb1ea1569cda49e36301e79dc81e9",
   pubsub: [name: Backend.PubSub,
            adapter: Phoenix.PubSub.PG2]
 

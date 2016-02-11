@@ -36,7 +36,8 @@ defmodule Backend.Mixfile do
      {:phoenix_html, "~> 2.1"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"},
-     {:comeonin, "~> 0.10"}]
+     {:comeonin, "~> 0.10"},
+     {:mailgun, "~> 0.1.2"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
