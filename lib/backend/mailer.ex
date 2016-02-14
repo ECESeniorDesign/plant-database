@@ -4,11 +4,11 @@ defmodule Backend.Mailer do
 
   @from "greenhouse@eceseniordesign.com"
 
-  def send_notification_email(email, plant_name) do
+  def send_notification_email(email, title, message) do
     send_email to: email,
                from: @from,
-               subject: "#{plant_name} is in trouble!",
-               text: "Check up on your plant \"#{plant_name}\" to ensure that it is alright!"
+               subject: title,
+               text: message
   end
 
 end
