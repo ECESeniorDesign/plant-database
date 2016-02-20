@@ -1,7 +1,7 @@
 defmodule Backend.UserTest do
   use Backend.ModelCase
 
-  alias Backend.User
+  # alias Backend.User
 
   # @valid_attrs %{email: "some content", password: "some content", password_confirmation: "some_content", username: "some content"}
   # @invalid_attrs %{}
