@@ -18,6 +18,7 @@ defmodule Backend.Router do
     resources "/plants", PlantController
     post "/token", TokenController, :create
     post "/notify", NotificationController, :notify
+    post "/plants/compatible", PlantController, :compatible
   end
 
   scope "/", Backend do
