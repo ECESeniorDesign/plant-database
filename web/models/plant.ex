@@ -1,5 +1,6 @@
 defmodule Backend.Plant do
   use Ecto.Model
+  import Ecto.Query
   
   schema "plants" do
     field :name
@@ -19,4 +20,28 @@ defmodule Backend.Plant do
     timestamps
     
   end
+
+  def compatible_with(query, plant_params) do
+    do_compatible_with(query, plant_params)
+  end
+
+  def compatible_with(plant_params) do
+    do_compatible_with(Backend.Plant, plant_params)
+  end
+
+  defp do_compatible_with(query, plant_params) do
+    conditions = ["light", "water", "humidity", "temperature", "acidity"]
+    Enum.reduce conditions, query, fn(condition, plants) ->
+      ideal_field = String.to_atom(condition <> "_ideal")
+      tolerance_field = String.to_atom(condition <> "_tolerance")
+      ideal = plant_params[ideal_field]
+      tolerance = plant_params[tolerance_field]
+      from plant in plants,
+        # Where their lower bound is less than our upper bound
+        where: fragment("? - ? < ?", field(plant, ^ideal_field), field(plant, ^tolerance_field), ^(ideal + tolerance)),
+        # Where their upper bound is greater than our lower bound
+        where: fragment("? + ? > ?", field(plant, ^ideal_field), field(plant, ^tolerance_field), ^(ideal - tolerance))
+    end
+  end
+
 end
