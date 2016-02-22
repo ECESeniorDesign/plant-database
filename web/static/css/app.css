@@ -81,3 +81,8 @@ form.link, form.button {
     border-bottom: 0;
   }
 }
+
+.plant-info-table th td {
+  padding-left: 0;
+  border: 0;
+}
