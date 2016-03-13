@@ -28,6 +28,11 @@ defmodule Backend.Router do
 
     get "/registration", RegistrationController, :new
     post "/registration", RegistrationController, :create
+
+    get "/login", SessionController, :new
+    post "/login", SessionController, :create
+    delete "/login", SessionController, :delete
+
   end
 
   # Other scopes may use custom stacks.

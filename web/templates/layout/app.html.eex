@@ -20,6 +20,21 @@
         <span class="logo"></span>
       </div>
 
+      <div class="row">
+        <div class="col-lg-6">
+          <%= if logged_in?(@conn) do %>
+            <p>Welcome, chase!</p>
+          <% end %>
+        </div>
+        <div class="col-lg-6 text-right">
+          <%= if logged_in?(@conn) do %>
+            <%= link "Logout", to: session_path(@conn, :delete), method: :delete %>
+          <% else %>
+            <%= link "Log in", to: session_path(@conn, :new) %>
+          <% end %>
+        </div>
+      </div>
+
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
