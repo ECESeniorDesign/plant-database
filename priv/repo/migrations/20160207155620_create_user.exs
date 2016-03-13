@@ -6,6 +6,7 @@ defmodule Backend.Repo.Migrations.CreateUser do
       add :username, :string
       add :email, :string
       add :encrypted_password, :string
+      add :admin, :boolean, default: false
 
       timestamps
     end

@@ -26,4 +26,8 @@ defmodule Backend.Session do
     !!current_user(conn)
   end
 
+  def admin?(conn) do
+    logged_in?(conn) and current_user(conn).admin
+  end
+
 end

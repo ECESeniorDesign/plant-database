@@ -35,7 +35,7 @@ defmodule Backend.Web do
       import Ecto.Model
       import Ecto.Query, only: [from: 1, from: 2]
 
-      import Backend.Session, only: [current_user: 1, logged_in?: 1]
+      import Backend.Session, only: [current_user: 1, logged_in?: 1, admin?: 1]
 
       import Backend.Router.Helpers
     end
@@ -52,7 +52,7 @@ defmodule Backend.Web do
       use Phoenix.HTML
       import Backend.Repo
 
-      import Backend.Session, only: [current_user: 1, logged_in?: 1]
+      import Backend.Session, only: [current_user: 1, logged_in?: 1, admin?: 1]
 
       import Backend.Router.Helpers
     end

@@ -77,6 +77,15 @@ plants = [
   },
 ]
 
+admin = %Backend.User{
+  username: "chase",
+  encrypted_password: "$2b$12$esgSWxpgE/bt493UuMS3cuEiMVRv2.qBfTBtIXPCaJaLY2xrqP/r2",
+  email: "cconkli4@u.rochester.edu",
+  admin: true
+}
+
+Repo.insert! admin
+
 for plant <- plants do
   Repo.insert! plant
 end

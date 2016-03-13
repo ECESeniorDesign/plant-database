@@ -7,6 +7,7 @@ defmodule Backend.User do
     field :encrypted_password, :string
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true
+    field :admin, :boolean
 
     timestamps
   end
@@ -29,4 +30,5 @@ defmodule Backend.User do
     |> validate_length(:password_confirmation, min: 1)
     |> validate_confirmation(:password)
   end
+
 end

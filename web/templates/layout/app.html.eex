@@ -23,7 +23,7 @@
       <div class="row">
         <div class="col-lg-6">
           <%= if logged_in?(@conn) do %>
-            <p>Welcome, chase!</p>
+            <p>Welcome, chase<%= if admin?(@conn), do: " (admin)"%>!</p>
           <% end %>
         </div>
         <div class="col-lg-6 text-right">
