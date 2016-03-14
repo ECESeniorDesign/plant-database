@@ -27,15 +27,18 @@ defmodule Backend.Router do
 
     get "/", PageController, :index
 
-    resources "/plants", PlantController
-
     get "/registration", RegistrationController, :new
     post "/registration", RegistrationController, :create
 
     get "/login", SessionController, :new
     post "/login", SessionController, :create
     delete "/login", SessionController, :delete
+  end
 
+  scope "/admin", Backend do
+    pipe_through :browser # Use the default browser stack
+
+    resources "/plants", Admin.PlantController    
   end
 
   # Other scopes may use custom stacks.
