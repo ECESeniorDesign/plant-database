@@ -9,6 +9,7 @@
 
     <title>Plant Database</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
 
   <body>
@@ -23,7 +24,7 @@
       <div class="row">
         <div class="col-lg-6">
           <%= if logged_in?(@conn) do %>
-            <p>Welcome, chase<%= if admin?(@conn), do: " (admin)"%>!</p>
+            <p>Welcome, <%= current_user(@conn).username %>!</p>
           <% end %>
         </div>
         <div class="col-lg-6 text-right">

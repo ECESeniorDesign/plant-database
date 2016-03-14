@@ -1,0 +1,7 @@
+<h3>New Plant</h3>
+<%= form_for @changeset, plant_path(@conn, :create), fn f -> %>
+  <%= render "_form.html", f: f %>
+  <div class="form-group">
+    <%= submit "Create", class: "btn btn-primary" %>
+  </div>
+<% end %>

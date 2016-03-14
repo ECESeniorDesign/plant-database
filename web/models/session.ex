@@ -18,7 +18,8 @@ defmodule Backend.Session do
   end
 
   def current_user(conn) do
-    id = Plug.Conn.get_session(conn, :current_user)
+    id = Plug.Conn.fetch_session(conn)
+      |> Plug.Conn.get_session(:current_user)
     if id, do: Repo.get(User, id)
   end
 

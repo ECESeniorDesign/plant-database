@@ -1,0 +1,75 @@
+<%= if @f.errors != [] do %>
+  <div class="alert alert-danger">
+    <p>Oops, something went wrong! Please check the errors below:</p>
+    <ul>
+      <%= for {attr, message} <- @f.errors do %>
+        <li><%= humanize(attr) %> <%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="form-group">
+  <label>Plant Name</label>
+  <%= text_input @f, :name, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <label>Photo URL</label>
+  <%= text_input @f, :photo_url, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <label>Water Ideal</label>
+  <%= text_input @f, :water_ideal, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <label>Water Tolerance</label>
+  <%= text_input @f, :water_tolerance, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <label>Light Ideal</label>
+  <%= text_input @f, :light_ideal, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <label>Light Tolerance</label>
+  <%= text_input @f, :light_tolerance, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <label>Acidity Ideal</label>
+  <%= text_input @f, :acidity_ideal, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <label>Acidity Tolerance</label>
+  <%= text_input @f, :acidity_tolerance, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <label>Humidity Ideal</label>
+  <%= text_input @f, :humidity_ideal, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <label>Humidity Tolerance</label>
+  <%= text_input @f, :humidity_tolerance, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <label>Temperature Ideal</label>
+  <%= text_input @f, :temperature_ideal, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <label>Temperature Tolerance</label>
+  <%= text_input @f, :temperature_tolerance, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <label>Maturity</label>
+  <%= text_input @f, :maturity, class: "form-control" %>
+</div>

@@ -1,0 +1,7 @@
+<h3>Edit Plant</h3>
+<%= form_for @changeset, plant_path(@conn, :update, @changeset.model), fn f -> %>
+  <%= render "_form.html", f: f %>
+  <div class="form-group">
+    <%= submit "Update", class: "btn btn-primary" %>
+  </div>
+<% end %>

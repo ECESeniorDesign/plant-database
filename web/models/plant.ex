@@ -1,5 +1,5 @@
 defmodule Backend.Plant do
-  use Ecto.Model
+  use Backend.Web, :model
   import Ecto.Query
   
   schema "plants" do
@@ -19,6 +19,17 @@ defmodule Backend.Plant do
     
     timestamps
     
+  end
+
+  @required_fields ~w(name photo_url water_ideal water_tolerance light_ideal
+                      light_tolerance acidity_ideal acidity_tolerance
+                      humidity_ideal humidity_tolerance temperature_ideal
+                      temperature_tolerance maturity)
+  @optional_fields ~w()
+
+  def changeset(model, params \\ :empty) do
+    model
+      |> cast(params, @required_fields, @optional_fields)
   end
 
   def compatible_with(query, plant_params) do

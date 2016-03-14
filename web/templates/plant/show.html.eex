@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-lg-4">
+    <div class="thumbnail">
+      <img src="<%= @plant.photo_url %>">
+    </div>
+    <div class="text-center">
+      <%= link "Back", to: plant_path(@conn, :index)%>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <h4>
+      <%= @plant.name %>
+      <small class="action">
+        <%= link to: plant_path(@conn, :edit, @plant) do %>
+          <i class="fa fa-pencil"></i>
+        <% end %>
+        <%= link to: plant_path(@conn, :delete, @plant), method: :delete do %>
+          <i class="fa fa-trash"></i>
+        <% end %>
+      </small>
+    </h4>
+    <table class="table plant-info-table">
+      <tr><th>Maturity:</th><td><%= @plant.maturity %> days</td></tr>
+      <tr><th>Temperature:</th><td><%= @plant.temperature_ideal %> &plusmn; <%= @plant.temperature_tolerance %> &deg;F</td></tr>
+      <tr><th>Light:</th><td><%= @plant.light_ideal %> &plusmn; <%= @plant.light_tolerance %></td></tr>
+      <tr><th>Water:</th><td><%= @plant.water_ideal %> &plusmn; <%= @plant.water_tolerance %></td></tr>
+      <tr><th>Humidity:</th><td><%= @plant.humidity_ideal * 100 %> &plusmn; <%= @plant.humidity_tolerance * 100 %> %</td></tr>
+    </table>
+    <h5>Compatible With</h5>
+    <p><%= compatible_plants(@plant) %></p>
+   </div>
+</div>

@@ -1,0 +1,27 @@
+<%= link "New", to: plant_path(@conn, :new) %>
+<%= for plant <- @plants do %>
+  <div class="row">
+    <div class="col-lg-4">
+      <%= link to: plant_path(@conn, :show, plant), class: "thumbnail" do %>
+        <img src="<%= plant.photo_url %>">
+      <% end %>
+    </div>
+    <div class="col-lg-8">
+      <h4>
+        <%= plant.name %>
+        <small class="action">
+          <%= link to: plant_path(@conn, :edit, plant) do %>
+            <i class="fa fa-pencil"></i>
+          <% end %>
+          <%= link to: plant_path(@conn, :delete, plant), method: :delete do %>
+            <i class="fa fa-trash"></i>
+          <% end %>
+        </small>
+      </h4>
+      <table class="table plant-info-table">
+        <tr><th>Maturity:</th><td><%= plant.maturity %> days</td></tr>
+        <tr><th>Temperature:</th><td><%= plant.temperature_ideal %> &deg;F</td></tr>
+      </table>
+     </div>
+  </div>
+<% end %>

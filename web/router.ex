@@ -13,11 +13,12 @@ defmodule Backend.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", Backend do
+  scope "/api", Backend, as: :api do
     pipe_through :api
-    resources "/plants", PlantController
     post "/token", TokenController, :create
     post "/notify", NotificationController, :notify
+    get "/plants", PlantController, :index
+    get "/plants/:id", PlantController, :show
     post "/plants/compatible", PlantController, :compatible
   end
 
@@ -25,6 +26,8 @@ defmodule Backend.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    resources "/plants", PlantController
 
     get "/registration", RegistrationController, :new
     post "/registration", RegistrationController, :create
