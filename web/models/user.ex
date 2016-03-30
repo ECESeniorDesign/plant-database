@@ -9,6 +9,8 @@ defmodule Backend.User do
     field :password_confirmation, :string, virtual: true
     field :admin, :boolean
 
+    has_many :devices, Backend.Device
+
     timestamps
   end
 

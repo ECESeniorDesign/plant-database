@@ -20,6 +20,7 @@ defmodule Backend.Router do
     get "/plants", PlantController, :index
     get "/plants/:id", PlantController, :show
     post "/plants/compatible", PlantController, :compatible
+    post "/devices", DeviceController, :create
   end
 
   scope "/", Backend do
