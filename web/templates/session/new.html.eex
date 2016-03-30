@@ -13,5 +13,6 @@
 
   <div class="form-group">
     <%= submit "Login", class: "btn btn-primary" %>
+    <%= link("Register", to: registration_path(@conn, :new), class: "btn btn-default") %>
   </div>
 <% end %>

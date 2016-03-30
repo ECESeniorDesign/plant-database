@@ -1,6 +1,5 @@
 defmodule Backend.PlantController do
   use Backend.Web, :controller
-  import Ecto.Query
 
   def compatible(conn, %{"ids" => ids}) do
     query = from plant in Plant,

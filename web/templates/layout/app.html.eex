@@ -18,7 +18,7 @@
         <ul class="nav nav-pills pull-right">
           <h1 class="title">Greenhouse Plant Database</h1>
         </ul>
-        <span class="logo"></span>
+        <a class="logo" href="/"></a>
       </div>
 
       <div class="row">
@@ -29,9 +29,12 @@
         </div>
         <div class="col-lg-6 text-right">
           <%= if logged_in?(@conn) do %>
+            <%= if admin?(@conn) do %>
+              <%= link "Admin", to: plant_path(@conn, :index) %> |
+            <% end %>
             <%= link "Logout", to: session_path(@conn, :delete), method: :delete %>
           <% else %>
-            <%= link "Log in", to: session_path(@conn, :new) %>
+            <%= link "Log in", to: session_path(@conn, :new) %> | <%= link "Register", to: registration_path(@conn, :new) %>
           <% end %>
         </div>
       </div>

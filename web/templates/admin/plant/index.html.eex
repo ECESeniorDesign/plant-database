@@ -1,4 +1,8 @@
-<%= link "New", to: plant_path(@conn, :new) %>
+<div class="row">
+  <div class="col-lg-4">
+    <%= link "New", to: plant_path(@conn, :new), class: "btn btn-default bottomspace" %>
+  </div>
+</div>
 <%= for plant <- @plants do %>
   <div class="row">
     <div class="col-lg-4">
@@ -13,7 +17,7 @@
           <%= link to: plant_path(@conn, :edit, plant) do %>
             <i class="fa fa-pencil"></i>
           <% end %>
-          <%= link to: plant_path(@conn, :delete, plant), method: :delete do %>
+          <%= link to: plant_path(@conn, :delete, plant), method: :delete, data: [confirm: "Are you sure?"] do %>
             <i class="fa fa-trash"></i>
           <% end %>
         </small>

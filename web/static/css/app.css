@@ -86,3 +86,7 @@ form.link, form.button {
   padding-left: 0;
   border: 0;
 }
+
+.bottomspace {
+  margin-bottom: 1em;
+}
