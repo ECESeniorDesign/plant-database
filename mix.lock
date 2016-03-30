@@ -1,4 +1,5 @@
-%{"comeonin": {:hex, :comeonin, "0.11.3"},
+%{"apns": {:hex, :apns, "0.0.12"},
+  "comeonin": {:hex, :comeonin, "0.11.3"},
   "connection": {:hex, :connection, "1.0.2"},
   "cowboy": {:hex, :cowboy, "1.0.4"},
   "cowlib": {:hex, :cowlib, "1.0.2"},
