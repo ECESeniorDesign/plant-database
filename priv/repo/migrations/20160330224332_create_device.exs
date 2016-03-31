@@ -9,6 +9,7 @@ defmodule Backend.Repo.Migrations.CreateDevice do
       timestamps
     end
     create index(:devices, [:user_id])
+    create unique_index(:devices, [:device_id])
 
   end
 end

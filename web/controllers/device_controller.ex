@@ -10,7 +10,7 @@ defmodule Backend.DeviceController do
         changeset = Backend.Device.changeset(%Backend.Device{}, %{"device_id" => device_id, "user_id" => user_id})
         case Repo.insert changeset do
           {:ok, _} -> send_resp(conn, 200, "OK")
-          _ -> send_resp(conn, 500, "Cannot add device")
+          _ -> send_resp(conn, 200, "Already Added")
         end
     end
   end
