@@ -84,7 +84,10 @@ admin = %Backend.User{
   admin: true
 }
 
-Repo.insert! admin
+admin = Repo.insert! admin
+admin
+  |> Ecto.Model.build(:notification_setting)
+  |> Repo.insert!
 
 for plant <- plants do
   Repo.insert! plant

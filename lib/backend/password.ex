@@ -15,8 +15,12 @@ defmodule Backend.Password do
     Generates the password for the changeset and then stores it to the database.
   """
   def generate_password_and_store_user(changeset) do
-    changeset
-      |> generate_password
-      |> Repo.insert
+    Repo.transaction fn ->
+      user = changeset
+        |> generate_password
+        |> Repo.insert!
+      Ecto.Model.build(user, :notification_setting)
+        |> Repo.insert!
+    end
   end
 end

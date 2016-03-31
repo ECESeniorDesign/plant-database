@@ -10,6 +10,7 @@ defmodule Backend.User do
     field :admin, :boolean
 
     has_many :devices, Backend.Device
+    has_one :notification_setting, Backend.NotificationSetting
 
     timestamps
   end
