@@ -40,16 +40,6 @@
 </div>
 
 <div class="form-group">
-  <label>Acidity Ideal</label>
-  <%= text_input @f, :acidity_ideal, class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <label>Acidity Tolerance</label>
-  <%= text_input @f, :acidity_tolerance, class: "form-control" %>
-</div>
-
-<div class="form-group">
   <label>Humidity Ideal</label>
   <%= text_input @f, :humidity_ideal, class: "form-control" %>
 </div>

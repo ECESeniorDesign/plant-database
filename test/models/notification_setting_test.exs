@@ -10,9 +10,4 @@ defmodule Backend.NotificationSettingTest do
     changeset = NotificationSetting.changeset(%NotificationSetting{}, @valid_attrs)
     assert changeset.valid?
   end
-
-  test "changeset with invalid attributes" do
-    changeset = NotificationSetting.changeset(%NotificationSetting{}, @invalid_attrs)
-    refute changeset.valid?
-  end
 end

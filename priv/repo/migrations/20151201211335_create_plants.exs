@@ -9,8 +9,6 @@ defmodule Backend.Repo.Migrations.CreatePlants do
       add :water_tolerance, :float
       add :light_ideal, :float
       add :light_tolerance, :float
-      add :acidity_ideal, :float
-      add :acidity_tolerance, :float
       add :humidity_ideal, :float
       add :humidity_tolerance, :float
       add :temperature_ideal, :float

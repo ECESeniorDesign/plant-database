@@ -9,8 +9,6 @@ defmodule Backend.Plant do
     field :water_tolerance, :float
     field :light_ideal, :float
     field :light_tolerance, :float
-    field :acidity_ideal, :float
-    field :acidity_tolerance, :float
     field :humidity_ideal, :float
     field :humidity_tolerance, :float
     field :temperature_ideal, :float
@@ -22,8 +20,7 @@ defmodule Backend.Plant do
   end
 
   @required_fields ~w(name photo_url water_ideal water_tolerance light_ideal
-                      light_tolerance acidity_ideal acidity_tolerance
-                      humidity_ideal humidity_tolerance temperature_ideal
+                      light_tolerance humidity_ideal humidity_tolerance temperature_ideal
                       temperature_tolerance maturity)
   @optional_fields ~w()
 
@@ -41,7 +38,7 @@ defmodule Backend.Plant do
   end
 
   defp do_compatible_with(query, plant_params) do
-    conditions = ["light", "water", "humidity", "temperature", "acidity"]
+    conditions = ["light", "water", "humidity", "temperature"]
     Enum.reduce conditions, query, fn(condition, plants) ->
       ideal_field = String.to_atom(condition <> "_ideal")
       tolerance_field = String.to_atom(condition <> "_tolerance")

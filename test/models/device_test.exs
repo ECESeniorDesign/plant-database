@@ -3,7 +3,7 @@ defmodule Backend.DeviceTest do
 
   alias Backend.Device
 
-  @valid_attrs %{device_id: "some content"}
+  @valid_attrs %{device_id: "some content", user_id: 5}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
