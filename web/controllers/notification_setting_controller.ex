@@ -1,7 +1,7 @@
 defmodule Backend.NotificationSettingController do
   use Backend.Web, :controller
 
-  def update(conn, %{"token" => token, "email" => email, "push" => push}) do
+  def settings(conn, %{"token" => token, "email" => email, "push" => push}) do
     user_id = Backend.Authenticator.authenticate_token(token)
     case user_id do
       :invalid -> send_resp(conn, 403, "Invalid Credentials")
@@ -16,7 +16,7 @@ defmodule Backend.NotificationSettingController do
 
   # Not exactly restful
 
-  def update(conn, %{"token" => token}) do
+  def settings(conn, %{"token" => token}) do
     user_id = Backend.Authenticator.authenticate_token(token)
     case user_id do
       :invalid -> send_resp(conn, 403, "Invalid Credentials")

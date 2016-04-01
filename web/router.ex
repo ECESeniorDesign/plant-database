@@ -21,7 +21,7 @@ defmodule Backend.Router do
     get "/plants/:id", PlantController, :show
     post "/plants/compatible", PlantController, :compatible
     post "/devices", DeviceController, :create
-    post "/notification_settings", NotificationSettingController, :update
+    post "/notification_settings", NotificationSettingController, :settings
   end
 
   scope "/", Backend do
