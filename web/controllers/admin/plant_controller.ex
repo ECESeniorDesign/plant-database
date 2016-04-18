@@ -21,7 +21,7 @@ defmodule Backend.Admin.PlantController do
 
   def create(conn, %{"plant" => plant_params}) do
     changeset = Plant.changeset(%Plant{}, plant_params)
-    case Repo.update changeset do
+    case Repo.insert changeset do
       {:ok, plant} ->
         conn
         |> put_flash(:info, "\"#{plant.name}\" added.")
