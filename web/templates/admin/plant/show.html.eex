@@ -23,8 +23,8 @@
       <tr><th>Maturity:</th><td><%= @plant.maturity %> days</td></tr>
       <tr><th>Temperature:</th><td><%= @plant.temperature_ideal %> &plusmn; <%= @plant.temperature_tolerance %> &deg;F</td></tr>
       <tr><th>Light:</th><td><%= @plant.light_ideal %> &plusmn; <%= @plant.light_tolerance %></td></tr>
-      <tr><th>Water:</th><td><%= @plant.water_ideal %> &plusmn; <%= @plant.water_tolerance %></td></tr>
-      <tr><th>Humidity:</th><td><%= @plant.humidity_ideal * 100 %> &plusmn; <%= @plant.humidity_tolerance * 100 %> %</td></tr>
+      <tr><th>Water:</th><td><%= @plant.water_ideal * 100 %> &plusmn; <%= @plant.water_tolerance * 100 %></td></tr>
+      <tr><th>Humidity:</th><td><%= @plant.humidity_ideal %> &plusmn; <%= @plant.humidity_tolerance %> %</td></tr>
     </table>
     <h5>Compatible With</h5>
     <p><%= compatible_plants(@plant) %></p>

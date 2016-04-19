@@ -11,7 +11,7 @@ defmodule Backend.Admin.PlantController do
 
   def show(conn, %{"id" => id}) do
     plant = Repo.get(Plant, id)
-    render conn, "plant.html", plant: plant
+    render conn, "show.html", plant: plant
   end
 
   def new(conn, _params) do
