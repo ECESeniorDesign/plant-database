@@ -10,7 +10,7 @@ defmodule Backend.PlantTest do
 
   setup do
     on_exit fn ->
-      SQL.restart_test_transaction(Repo)
+      SQL.Sandbox.mode(Repo, {:shared, self()})
     end
   end
 

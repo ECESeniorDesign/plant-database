@@ -25,10 +25,10 @@ defmodule Backend.Admin.PlantController do
       {:ok, plant} ->
         conn
         |> put_flash(:info, "\"#{plant.name}\" added.")
-        |> redirect to: plant_path(conn, :index)
+        |> redirect(to: plant_path(conn, :index))
       {:error, changeset} ->
         conn
-        |> render "new.html", changeset: changeset
+        |> render("new.html", changeset: changeset)
     end
   end
 
@@ -45,10 +45,10 @@ defmodule Backend.Admin.PlantController do
       {:ok, plant} ->
         conn
         |> put_flash(:info, "\"#{plant.name}\" updated.")
-        |> redirect to: plant_path(conn, :index)
+        |> redirect(to: plant_path(conn, :index))
       {:error, changeset} ->
         conn
-        |> render "edit.html", changeset: changeset
+        |> render("edit.html", changeset: changeset)
     end
   end
 
@@ -57,11 +57,11 @@ defmodule Backend.Admin.PlantController do
       {:ok, plant} ->
         conn
         |> put_flash(:info, "\"#{plant.name}\" deleted.")
-        |> redirect to: plant_path(conn, :index)
+        |> redirect(to: plant_path(conn, :index))
       {:error, plant} ->
         conn
         |> put_flash(:error, "Could not delete \"#{plant.name}\".")
-        |> redirect to: plant_path(conn, :index)
+        |> redirect(to: plant_path(conn, :index))
     end
   end
 

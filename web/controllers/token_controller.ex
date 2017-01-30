@@ -19,7 +19,7 @@ defmodule Backend.TokenController do
 
   defp send_token(user_id, conn) do
     conn
-      |> render token: Phoenix.Token.sign(Backend.Endpoint, "user", user_id)
+      |> render(token: Phoenix.Token.sign(Backend.Endpoint, "user", user_id))
   end
 
 end

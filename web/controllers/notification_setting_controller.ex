@@ -7,7 +7,7 @@ defmodule Backend.NotificationSettingController do
       :invalid -> send_resp(conn, 403, "Invalid Credentials")
       _ ->
         user = Repo.get(User, user_id)
-          |> Repo.preload :notification_setting
+          |> Repo.preload(:notification_setting)
         Backend.NotificationSetting.changeset(user.notification_setting, %{"email" => email, "push" => push})
           |> Repo.update!
         send_resp(conn, 200, "OK")
@@ -22,7 +22,7 @@ defmodule Backend.NotificationSettingController do
       :invalid -> send_resp(conn, 403, "Invalid Credentials")
       _ ->
         user = Repo.get(User, user_id)
-          |> Repo.preload :notification_setting
+          |> Repo.preload(:notification_setting)
         render conn, "show.json", data: %{"email" => user.notification_setting.email, "push" => user.notification_setting.push}
     end
   end

@@ -16,7 +16,7 @@ defmodule Backend.PageControllerTest do
       maturity: 85,
     }
     |> Repo.insert!
-    conn = get conn(), "/"
+    conn = get build_conn(), "/"
     assert html_response(conn, 200) =~ "Featured Plant"
   end
 end

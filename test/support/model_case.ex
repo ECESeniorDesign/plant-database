@@ -24,10 +24,11 @@ defmodule Backend.ModelCase do
   end
 
   setup tags do
-    unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(Backend.Repo, [])
-    end
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Backend.Repo)
 
+    unless tags[:async] do
+      Ecto.Adapters.SQL.Sandbox.mode(Backend.Repo, {:shared, self()})
+    end
     :ok
   end
 

@@ -6,7 +6,7 @@ defmodule Backend.PlantControllerTest do
 
   setup do
     on_exit fn ->
-      SQL.restart_test_transaction(Repo)
+      SQL.Sandbox.mode(Repo, {:shared, self()})
     end
   end
 
@@ -28,7 +28,7 @@ defmodule Backend.PlantControllerTest do
       |> Repo.insert!
       |> List.wrap
       |> Poison.encode!
-    response = conn(:get, "/api/plants") |> send_request
+    response = build_conn(:get, "/api/plants") |> send_request
     assert response.status == 200
     assert response.resp_body == plants_as_json
   end
@@ -83,7 +83,7 @@ defmodule Backend.PlantControllerTest do
     } |> Repo.insert!
 
     [plant | _rest] = Repo.all(Plant)
-    response = conn(:post, "/api/plants/compatible", %{ids: [plant.id]}) |> send_request
+    response = build_conn(:post, "/api/plants/compatible", %{ids: [plant.id]}) |> send_request
     assert response.status == 200
     assert response.resp_body == plants_as_json
 
@@ -139,7 +139,7 @@ defmodule Backend.PlantControllerTest do
     } |> Repo.insert!
 
     [plant1, plant2 | _rest] = Repo.all(Plant)
-    response = conn(:post, "/api/plants/compatible", %{ids: [plant1.id, plant2.id]}) |> send_request
+    response = build_conn(:post, "/api/plants/compatible", %{ids: [plant1.id, plant2.id]}) |> send_request
     assert response.status == 200
     assert response.resp_body == plants_as_json
 
@@ -162,7 +162,7 @@ defmodule Backend.PlantControllerTest do
       }
       |> Repo.insert!
       |> Poison.encode!
-    response = conn(:get, "/api/plants/#{(Repo.all(Plant) |> hd).id}") |> send_request
+    response = build_conn(:get, "/api/plants/#{(Repo.all(Plant) |> hd).id}") |> send_request
     assert response.status == 200
     assert response.resp_body == plant_as_json
   end

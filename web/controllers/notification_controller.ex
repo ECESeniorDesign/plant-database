@@ -7,7 +7,7 @@ defmodule Backend.NotificationController do
       :invalid -> send_resp(conn, 403, "Invalid Credentials")
       _ ->
         user = Repo.get(User, user_id)
-          |> Repo.preload [:devices, :notification_setting]
+          |> Repo.preload([:devices, :notification_setting])
         setting = user.notification_setting
         if setting.email, do: Backend.Mailer.send_notification_email(user.email, title, message)
         if setting.push do

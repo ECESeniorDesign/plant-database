@@ -4,7 +4,7 @@
 # This configuration file is loaded before any dependency and
 # is restricted to this project.
 use Mix.Config
-
+config :backend, ecto_repos: [Backend.Repo]
 # Configures the endpoint
 config :backend, Backend.Endpoint,
   url: [host: "localhost"],
